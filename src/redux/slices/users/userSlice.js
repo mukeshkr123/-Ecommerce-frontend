@@ -19,11 +19,11 @@ const initialState = {
 // login action
 export const LoginUserAction = createAsyncThunk(
   "users/login",
-  async (payload, { getState, rejectWithValue }) => {
+  async ({ email, password }, { getState, rejectWithValue }) => {
     try {
       const { data } = await axios.post(`${baseUrl}/users/login`, {
-        email: payload?.email,
-        password: payload?.password,
+        email,
+        password,
       });
       return data;
     } catch (error) {
