@@ -1,4 +1,4 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import baseUrl from "../../../utils/baseUrl";
 
@@ -31,3 +31,28 @@ export const LoginUserAction = createAsyncThunk(
     }
   }
 );
+
+// users slice
+
+const userSlice = createSlice({
+  name: "users",
+  initialState,
+  extraReducers: (builder) => {
+    builder.addCase(LoginUserAction.pending, (state, action) => {
+      state.userAuth.loading = true;
+    });
+    builder.addCase(LoginUserAction.fulfilled, (state, action) => {
+      state.userAuth.userInfo = action.payload;
+      state.userAuth.loading = false;
+    });
+    builder.addCase(LoginUserAction.rejected, (state, action) => {
+      state.userAuth.error = action.payload;
+      state.userAuth.loading = false;
+    });
+  },
+});
+
+//generate reducer
+const userReducer = userSlice.reducer;
+
+export default userReducer;
