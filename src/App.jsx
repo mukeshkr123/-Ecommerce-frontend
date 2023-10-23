@@ -3,6 +3,7 @@ import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
 import Navbar from "./components/Navbar/Navabar";
 import AuthRoute from "./components/AuthRoute/AuthRoute";
+import AdminRoute from "./components/AuthRoute/AdminRoute";
 
 const App = () => {
   return (
@@ -12,7 +13,9 @@ const App = () => {
         <Route path="/" element={<HomePage />} />
         {/* users  */}
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/admin" element={<AuthRoute></AuthRoute>} />
+        <Route path="/dashboard" element={<AuthRoute></AuthRoute>} />
+
+        <Route path="/route" element={<AdminRoute></AdminRoute>} />
       </Routes>
     </BrowserRouter>
   );
