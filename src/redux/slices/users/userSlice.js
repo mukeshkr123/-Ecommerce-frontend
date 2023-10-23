@@ -26,7 +26,7 @@ export const LoginUserAction = createAsyncThunk(
         password,
       });
       // save the user intp localstorage
-      localStorage.setItem("userInfo", JSON.stringify(data?.token));
+      localStorage.setItem("userInfo", JSON.stringify(data));
       return data;
     } catch (error) {
       return rejectWithValue(error?.response?.data);
