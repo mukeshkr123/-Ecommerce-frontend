@@ -32,6 +32,8 @@ const Login = () => {
     // window.location.href = "/customer-profile";
   }
 
+  console.log(error);
+
   return (
     <section className="py-20 bg-gradient-to-b from-blue-200 to-blue-300 overflow-x-hidden">
       <div className="relative container px-4 mx-auto">
@@ -45,6 +47,7 @@ const Login = () => {
               <p className="mb-10 font-semibold font-heading text-blue-600">
                 Login to your account
               </p>
+              {error && <h2 className="text-red-600"> {error?.message}</h2>}
               <form className="flex flex-wrap -mx-4" onSubmit={onSubmitHandler}>
                 <div className="w-full md:w-1/2 px-4 mb-8 md:mb-12">
                   <label>
@@ -78,9 +81,18 @@ const Login = () => {
                 </div>
 
                 <div className="w-full px-4">
-                  <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold font-heading py-3 px-6 rounded-md uppercase">
-                    Login
-                  </button>
+                  {loading ? (
+                    <button
+                      disabled
+                      className="bg-blue-800 text-white font-bold font-heading py-3 px-6 rounded-md uppercase"
+                    >
+                      Loading...
+                    </button>
+                  ) : (
+                    <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold font-heading py-3 px-6 rounded-md uppercase">
+                      Login
+                    </button>
+                  )}
                 </div>
               </form>
             </div>
