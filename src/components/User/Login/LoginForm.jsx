@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { LoginUserAction } from "../../redux/slices/users/userSlice";
-import ErrorMsg from "../ErrorMessage";
+import { LoginUserAction } from "../../../redux/slices/users/userSlice";
+import ErrorMsg from "../../ErrorMessage";
 
-const Login = () => {
+const LoginForm = () => {
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     email: "mukesh1@gmail.com",
@@ -114,4 +114,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginForm;
