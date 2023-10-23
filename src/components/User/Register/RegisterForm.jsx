@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { registerUserAction } from "../../../redux/slices/users/userSlice";
+import LoadingComponent from "../../LoadingComponent";
+import ErrorMsg from "../../ErrorMessage";
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -21,6 +23,14 @@ const RegisterForm = () => {
     dispatch(registerUserAction({ fullname, email, password }));
   };
 
+  // get user from the store
+  const { user, error, loading } = useSelector((state) => state?.users);
+
+  //redirect
+  if (user) {
+    // window.location.href = "/login";
+  }
+
   return (
     <section className="relative overflow-x-hidden">
       <div className="container px-4 mx-auto">
@@ -30,6 +40,10 @@ const RegisterForm = () => {
               <h3 className="mb-8 text-4xl md:text-5xl font-bold font-heading">
                 Signing up with social is super quick
               </h3>
+
+              {/* Error  */}
+              {error && <ErrorMsg message={error?.message} />}
+
               <p className="mb-10">Please, do not hesitate</p>
               <form onSubmit={onSubmitHandler}>
                 <input
@@ -57,9 +71,13 @@ const RegisterForm = () => {
                   placeholder="Enter your password"
                 />
 
-                <button className="mt-12 md:mt-16 bg-blue-800 hover:bg-blue-900 text-white font-bold font-heading py-5 px-8 rounded-md uppercase">
-                  Register
-                </button>
+                {loading ? (
+                  <LoadingComponent />
+                ) : (
+                  <button className="mt-12 md:mt-16 bg-blue-800 hover:bg-blue-900 text-white font-bold font-heading py-5 px-8 rounded-md uppercase">
+                    Register
+                  </button>
+                )}
               </form>
             </div>
           </div>
