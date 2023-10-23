@@ -25,6 +25,8 @@ export const LoginUserAction = createAsyncThunk(
         email,
         password,
       });
+      // save the user intp localstorage
+      localStorage.setItem("userInfo", JSON.stringify(data?.token));
       return data;
     } catch (error) {
       return rejectWithValue(error?.response?.data);
@@ -33,7 +35,6 @@ export const LoginUserAction = createAsyncThunk(
 );
 
 // users slice
-
 const userSlice = createSlice({
   name: "users",
   initialState,
