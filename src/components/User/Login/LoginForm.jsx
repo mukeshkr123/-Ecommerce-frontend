@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { LoginUserAction } from "../../../redux/slices/users/userSlice";
 import ErrorMsg from "../../ErrorMessage";
+import LoadingComponent from "../../LoadingComponent";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -86,12 +87,7 @@ const LoginForm = () => {
 
                 <div className="w-full px-4">
                   {loading ? (
-                    <button
-                      disabled
-                      className="bg-blue-800 text-white font-bold font-heading py-3 px-6 rounded-md uppercase"
-                    >
-                      Loading...
-                    </button>
+                    <LoadingComponent />
                   ) : (
                     <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold font-heading py-3 px-6 rounded-md uppercase">
                       Login
