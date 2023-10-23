@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { LoginUserAction } from "../../redux/slices/users/userSlice";
 
 const Login = () => {
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
-    email: "admin@gmail.com",
-    password: "12345",
+    email: "mukesh1@gmail.com",
+    password: "123",
   });
 
   const { email, password } = formData;
@@ -20,10 +20,16 @@ const Login = () => {
     dispatch(LoginUserAction({ email, password }));
   };
 
-  const { loading, userAuth } = {};
+  //get data from store
+  const { error, loading, userInfo } = useSelector(
+    (state) => state?.users?.userAuth
+  );
 
-  if (userAuth?.userInfo?.status) {
+  // redirect
+  if (userInfo?.userFound?.isAdmin) {
     window.location.href = "/admin";
+  } else {
+    // window.location.href = "/customer-profile";
   }
 
   return (
@@ -83,7 +89,7 @@ const Login = () => {
             className="w-full md:w-2/6 h-128 md:h-auto flex items-center lg:items-end px-4 pb-20 bg-cover bg-no-repeat rounded-lg"
             style={{
               backgroundImage:
-                'url("https://cdn.pixabay.com/photo/2017/03/29/04/47/high-heels-2184095_1280.jpg")',
+                'url("https://images.pexels.com/photos/4199523/pexels-photo-4199523.jpeg")',
             }}
           ></div>
         </div>
