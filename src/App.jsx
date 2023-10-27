@@ -4,19 +4,44 @@ import AuthRoute from "./components/AuthRoute/AuthRoute";
 import AdminRoute from "./components/AuthRoute/AdminRoute";
 import LoginForm from "./components/User/Login/LoginForm";
 import RegisterForm from "./components/User/Register/RegisterForm";
+import AdminDashboard from "./components/Admin/AdminDashboard";
+import ManageStocks from "./components/Admin/Products/ManageStocks";
 
 const App = () => {
   return (
     <BrowserRouter>
-      <Navbar />
+      {/* <Navbar /> */}
       <Routes>
         {/* users  */}
         <Route path="/login" element={<LoginForm />} />
-
         <Route path="/register" element={<RegisterForm />} />
 
-        <Route path="/dashboard" element={<AuthRoute></AuthRoute>} />
+        {/* admin route */}
+        <Route
+          path="/admin"
+          element={
+            <AuthRoute>
+              <AdminDashboard />
+            </AuthRoute>
+          }
+        >
+          {/* products */}
+          {/* <Route path="" element={<OrderList />} /> */}
+          {/* <Route path="add-product" element={<OrderList />} /> */}
+          <Route path="manage-products" element={<ManageStocks />} />
+          {/* <Route path="products/edit/:id" element={<OrderList />} /> */}
 
+          {/* coupons */}
+          {/* <Route path="add-coupon" element={<OrderList />} />
+          <Route path="manage-coupon" element={<OrderList />} />
+          <Route path="manage-coupon/edit/:code" element={<OrderList />} /> */}
+
+          {/* category */}
+          {/* <Route path="category-too-add" element={<OrderList />} />
+          <Route path="add-category" element={<OrderList />} />
+          <Route path="manage-category" element={<OrderList />} />
+          <Route path="editCategory" element={<OrderList />} /> */}
+        </Route>
         <Route path="/route" element={<AdminRoute></AdminRoute>} />
       </Routes>
     </BrowserRouter>
