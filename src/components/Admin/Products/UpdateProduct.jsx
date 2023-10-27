@@ -3,9 +3,9 @@ import { useState } from "react";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
 
-import ErrorMsg from "../../ErrorMsg/ErrorMsg";
-import LoadingComponent from "../../LoadingComp/LoadingComponent";
-import SuccessMsg from "../../SuccessMsg/SuccessMsg";
+import ErrorMsg from "../../ErrorMessage";
+import LoadingComponent from "../../LoadingComponent";
+import SuccessMsg from "../../SuccessMsg";
 
 //animated components for react-select
 const animatedComponents = makeAnimated();
