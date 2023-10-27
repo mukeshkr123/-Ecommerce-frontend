@@ -8,6 +8,7 @@ import AdminDashboard from "./components/Admin/AdminDashboard";
 import ManageStocks from "./components/Admin/Products/ManageStocks";
 import OrdersList from "./components/Admin/Orders/OrderList";
 import AddProduct from "./components/Admin/Products/AddProduct";
+import UpdateProduct from "./components/Admin/Products/UpdateProduct";
 
 const App = () => {
   return (
@@ -31,7 +32,7 @@ const App = () => {
           <Route path="" element={<OrdersList />} />
           <Route path="add-product" element={<AddProduct />} />
           <Route path="manage-products" element={<ManageStocks />} />
-          {/* <Route path="products/edit/:id" element={<OrdersList />} /> */}
+          <Route path="products/edit/:id" element={<UpdateProduct />} />
 
           {/* coupons */}
           {/* <Route path="add-coupon" element={<OrderList />} />
