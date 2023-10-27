@@ -21,16 +21,28 @@ export const createProductAction = createAsyncThunk(
       const { name, description, category, sizes, brand, colors, price } =
         payload;
 
+      //get the token from store
+      const token = getState().users?.userAuth?.userInfo?.token;
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+
       //make request
-      const { data } = await axios.post(`${baseUrl}/products`, {
-        name,
-        description,
-        category,
-        sizes,
-        brand,
-        colors,
-        price,
-      });
+      const { data } = await axios.post(
+        `${baseUrl}/products`,
+        {
+          name,
+          description,
+          category,
+          sizes,
+          brand,
+          colors,
+          price,
+        },
+        config
+      );
       return data;
     } catch (error) {
       return rejectWithValue(error?.response?.data);
