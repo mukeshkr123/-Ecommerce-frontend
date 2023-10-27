@@ -1,5 +1,3 @@
-import React from "react";
-
 const AdminRoute = () => {
   const user = JSON.parse(localStorage.getItem("userInfo"));
   const isAdmin = user?.userFound?.isAdmin ? true : false;
