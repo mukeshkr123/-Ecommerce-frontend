@@ -6,6 +6,7 @@ import LoginForm from "./components/User/Login/LoginForm";
 import RegisterForm from "./components/User/Register/RegisterForm";
 import AdminDashboard from "./components/Admin/AdminDashboard";
 import ManageStocks from "./components/Admin/Products/ManageStocks";
+import OrdersList from "./components/Admin/Orders/OrderList";
 
 const App = () => {
   return (
@@ -29,7 +30,7 @@ const App = () => {
           {/* <Route path="" element={<OrderList />} /> */}
           {/* <Route path="add-product" element={<OrderList />} /> */}
           <Route path="manage-products" element={<ManageStocks />} />
-          {/* <Route path="products/edit/:id" element={<OrderList />} /> */}
+          <Route path="products/edit/:id" element={<OrdersList />} />
 
           {/* coupons */}
           {/* <Route path="add-coupon" element={<OrderList />} />
