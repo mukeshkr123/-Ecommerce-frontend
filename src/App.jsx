@@ -7,6 +7,7 @@ import RegisterForm from "./components/User/Register/RegisterForm";
 import AdminDashboard from "./components/Admin/AdminDashboard";
 import ManageStocks from "./components/Admin/Products/ManageStocks";
 import OrdersList from "./components/Admin/Orders/OrderList";
+import AddProduct from "./components/Admin/Products/AddProduct";
 
 const App = () => {
   return (
@@ -27,10 +28,10 @@ const App = () => {
           }
         >
           {/* products */}
-          {/* <Route path="" element={<OrderList />} /> */}
-          {/* <Route path="add-product" element={<OrderList />} /> */}
+          <Route path="" element={<OrdersList />} />
+          <Route path="add-product" element={<AddProduct />} />
           <Route path="manage-products" element={<ManageStocks />} />
-          <Route path="products/edit/:id" element={<OrdersList />} />
+          {/* <Route path="products/edit/:id" element={<OrdersList />} /> */}
 
           {/* coupons */}
           {/* <Route path="add-coupon" element={<OrderList />} />
